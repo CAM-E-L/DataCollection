@@ -150,6 +150,7 @@ $(function () {
         intensity = intensitySlider.value <= 3 ? (4 - intensitySlider.value) * IncreaseSliderIntensity : (intensitySlider.value - 3) * IncreaseSliderIntensity;
 
         CAM.currentConnector.intensity = intensity
+        CAM.currentConnector.value = intensitySlider.value
         CAM.draw();
     });
 
@@ -174,6 +175,7 @@ $(function () {
         intensity = intensitySlider.value <= 3 ? (4 - intensitySlider.value) * IncreaseSliderIntensity : (intensitySlider.value - 3) * IncreaseSliderIntensity;
 
         CAM.currentConnector.intensity = intensity
+        CAM.currentConnector.value = intensitySlider.value
         CAM.draw();
     });
     
