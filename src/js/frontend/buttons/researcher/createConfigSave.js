@@ -12,7 +12,7 @@ const interactionSetUpStudy = `
     <!-- > adjust text -->
     <div class="properties-align">
         <div class="properties-size-naming" style="font-size:18px;">
-            Define the configuration of your C.A.M.E.L. study:
+            Define the configuration of your CAM study:
         </div>
         <div class="row" style="background-color:#aaa;">
             <div class="column1">
@@ -122,7 +122,7 @@ const interactionSetUpStudy = `
 
     <div class="row" style="background-color:#bababa;">
         <div class="column1">
-            Set the language of the C.A.M.E.L. interface:
+            Set the language of the Data Collection Tool interface:
         </div>
     <div class="column2">
         <label class="switch" style="margin-top: 8px;">
