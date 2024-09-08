@@ -29,7 +29,7 @@ var showDialogOnce = (function () {
 
 /* DEFAULT values */
 // if no arrows closeness to node
-if (config.hideArrows) {
+if (config.enableArrows) {
     var DistanceArrows = 20;
 } else {
     var DistanceArrows = 40;
@@ -100,16 +100,16 @@ if (
 
 // hide connector: direction of influence + reference
 if (
-    urlSearchParams.has("hideArrows") &&
-    urlSearchParams.get("hideArrows") === "true"
+    urlSearchParams.has("enableArrows") &&
+    urlSearchParams.get("enableArrows") === "true"
 ) {
-    config.hideArrows = true;
+    config.enableArrows = true;
     DistanceArrows = 20;
 } else if (
-    urlSearchParams.has("hideArrows") &&
-    urlSearchParams.get("hideArrows") === "false"
+    urlSearchParams.has("enableArrows") &&
+    urlSearchParams.get("enableArrows") === "false"
 ) {
-    config.hideArrows = false;
+    config.enableArrows = false;
 }
 
 // hide ambivalent node + reference

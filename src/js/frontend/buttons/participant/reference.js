@@ -128,7 +128,7 @@ $(function () {
 
 
 // hide arrows edges
-if (config.hideArrows) {
+if (config.enableArrows) {
     $('#hideConnectorDirInfluence').hide();
     $(function () {
         $('#hideConnectorDirInfluence').hide();

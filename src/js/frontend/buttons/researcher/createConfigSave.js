@@ -45,7 +45,7 @@ const interactionSetUpStudy = `
             </div>
             <div class="column2">
                 <label class="switch" style="margin-top: 8px;">
-                <input type="checkbox" id="sethideArrows" checked>
+                <input type="checkbox" id="setenableArrows" checked>
                 <div class="slider round">
                 </div>
                 </label>
@@ -179,7 +179,7 @@ function setConfigCAMfile() {
             MaxNumWords: $("#setMaxNumWords").val(), // maximum number of words for each concept
             MaxLengthChars: $("#setMaxLengthChars").val(), // maximum number of characters for each concept
 
-            hideArrows: null, // if false = possible to draw arrows
+            enableArrows: null, // if false = possible to draw arrows
             BidirectionalDefault: null, // if false = possible to draw arrows
 
             showOnlyPosSlid: null, // if true show only slider for agreement (+1 - +3)
@@ -210,10 +210,10 @@ function setConfigCAMfile() {
      */
 
     /* set up the config */
-    if ($("#sethideArrows").is(":checked")) {
-        setCAMConfig.config.hideArrows = false;
+    if ($("#setenableArrows").is(":checked")) {
+        setCAMConfig.config.enableArrows = false;
     } else {
-        setCAMConfig.config.hideArrows = true;
+        setCAMConfig.config.enableArrows = true;
     }
 
     if ($("#setBidirectionalDefault").is(":checked")) {
@@ -354,7 +354,7 @@ $(function () {
     });
 
     $(
-        "#sethideArrows, #setBidirectionalDefault, #setfullScreen, #setenableAmbivalent, #setshowOnlyPosSlid, #setcameraFeature"
+        "#setenableArrows, #setBidirectionalDefault, #setfullScreen, #setenableAmbivalent, #setshowOnlyPosSlid, #setcameraFeature"
     ).click(function () {
         setConfigCAMfile();
     });

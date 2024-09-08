@@ -4,11 +4,11 @@ var config = {
     CAMproject: "projectName", // "proj_" + uuid.v4(), // necessary for server (see ERM) !!!
     MinNumNodes: 10, // number of nodes necessary to draw # !!! 8
     
-    hideArrows: false, // if false = possible to draw arrows
-    BidirectionalDefault: false, // if true the default connection is bidirectional
+    enableArrows: false, // if false = possible to draw arrows
+    BidirectionalDefault: true, // if true the default connection is bidirectional
 
     enableAmbivalent: false, // if false = possible to draw ambivalent node
-    showOnlyPosSlid: false, // if true = show only slider for agreement (+1 - +3), only works if hideArrows is set to true
+    showOnlyPosSlid: false, // if true = show only slider for agreement (+1 - +3), only works if enableArrows is set to true
     
     MaxNumWords: 3, // maximum number of words for each concept
     MaxLengthChars: 40, // maximum number of characters for each concept
