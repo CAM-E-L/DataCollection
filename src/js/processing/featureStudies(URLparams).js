@@ -87,15 +87,15 @@ if (
 
 // show agreement only slider
 if (
-    urlSearchParams.has("showOnlyPosSlid") &&
-    urlSearchParams.get("showOnlyPosSlid") === "true"
+    urlSearchParams.has("OnlyStraightCon") &&
+    urlSearchParams.get("OnlyStraightCon") === "true"
 ) {
-    config.showOnlyPosSlid = true;
+    config.OnlyStraightCon = true;
 } else if (
-    urlSearchParams.has("showOnlyPosSlid") &&
-    urlSearchParams.get("showOnlyPosSlid") === "false"
+    urlSearchParams.has("OnlyStraightCon") &&
+    urlSearchParams.get("OnlyStraightCon") === "false"
 ) {
-    config.showOnlyPosSlid = false;
+    config.OnlyStraightCon = false;
 }
 
 // hide connector: direction of influence + reference

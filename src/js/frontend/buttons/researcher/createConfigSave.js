@@ -74,7 +74,7 @@ const interactionSetUpStudy = `
             </div>
             <div class="column2">
                 <label class="switch" style="margin-top: 8px;">
-                <input type="checkbox" id="setshowOnlyPosSlid">
+                <input type="checkbox" id="setOnlyStraightCon">
                 <div class="slider round">
                 </div>
                 </label>
@@ -182,7 +182,7 @@ function setConfigCAMfile() {
             enableArrows: null, // if false = possible to draw arrows
             BidirectionalDefault: null, // if false = possible to draw arrows
 
-            showOnlyPosSlid: null, // if true show only slider for agreement (+1 - +3)
+            OnlyStraightCon: null, // if true show only slider for agreement (+1 - +3)
 
             enableAmbivalent: null, // if false = possible to draw ambivalent node
             cameraFeature: null, // if true include camera / splotlight feature to move screen
@@ -228,10 +228,10 @@ function setConfigCAMfile() {
         setCAMConfig.config.enableAmbivalent = true;
     }
 
-    if ($("#setshowOnlyPosSlid").is(":checked")) {
-        setCAMConfig.config.showOnlyPosSlid = true;
+    if ($("#setOnlyStraightCon").is(":checked")) {
+        setCAMConfig.config.OnlyStraightCon = true;
     } else {
-        setCAMConfig.config.showOnlyPosSlid = false;
+        setCAMConfig.config.OnlyStraightCon = false;
     }
 
     if ($("#setcameraFeature").is(":checked")) {
@@ -354,7 +354,7 @@ $(function () {
     });
 
     $(
-        "#setenableArrows, #setBidirectionalDefault, #setfullScreen, #setenableAmbivalent, #setshowOnlyPosSlid, #setcameraFeature"
+        "#setenableArrows, #setBidirectionalDefault, #setfullScreen, #setenableAmbivalent, #setOnlyStraightCon, #setcameraFeature"
     ).click(function () {
         setConfigCAMfile();
     });

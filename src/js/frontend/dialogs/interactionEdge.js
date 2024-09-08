@@ -109,7 +109,7 @@ $(function () {
         $('#hideResearcherButtonsConnector').hide();
         $('#hideResearcherButtonsTop').hide();
     }
-    if(config.showOnlyPosSlid){
+    if(config.OnlyStraightCon){
         $('#hideSliderDisAgree').hide();
         $('#hideSliderAgreementOnly').show();
     }else{
@@ -235,7 +235,7 @@ if (config.enableArrows) {
 
 
 // hide / show slider reference 
-if (config.showOnlyPosSlid) {
+if (config.OnlyStraightCon) {
     $(function () {
         $('#hideSliderDisAgreeRef').hide();
         $('#hideSliderDisAgreeRef2').hide();
