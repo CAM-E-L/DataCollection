@@ -27,7 +27,7 @@ const interactionSetUpStudy = `
                 Maximum number of words for each concept (2-3 recommended):
             </div>
             <div class="column2">
-                <input type="number" id="setMaxLengthWords" min="1" max="5" style="width: 60%; margin-top: 10px;" value="3">
+                <input type="number" id="setMaxNumWords" min="1" max="5" style="width: 60%; margin-top: 10px;" value="3">
             </div>
         </div>
         <div class="row" style="background-color:#aaa;">
@@ -176,7 +176,7 @@ function setConfigCAMfile() {
     var setCAMConfig = {
         config: {
             MinNumNodes: $("#setMinNumNodes").val(), // number of nodes necessary to draw
-            MaxLengthWords: $("#setMaxLengthWords").val(), // maximum number of words for each concept
+            MaxNumWords: $("#setMaxNumWords").val(), // maximum number of words for each concept
             MaxLengthChars: $("#setMaxLengthChars").val(), // maximum number of characters for each concept
 
             hideArrows: null, // if false = possible to draw arrows
@@ -360,7 +360,7 @@ $(function () {
     });
 
     $(
-        "#setMinNumNodes,#setMaxLengthWords, #setMaxLengthChars, #setLanguage"
+        "#setMinNumNodes,#setMaxNumWords, #setMaxLengthChars, #setLanguage"
     ).change(function () {
         setConfigCAMfile();
     });

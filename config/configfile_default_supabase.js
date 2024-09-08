@@ -10,7 +10,7 @@ var config = {
     hideAmbivalent: true, // if false = possible to draw ambivalent node
     showOnlyPosSlid: false, // if true = show only slider for agreement (+1 - +3), only works if hideArrows is set to true
     
-    MaxLengthWords: 3, // maximum number of words for each concept
+    MaxNumWords: 3, // maximum number of words for each concept
     MaxLengthChars: 40, // maximum number of characters for each concept
     LengthSentence: 14, // include breaklines if >= X characters
     LengthWords: 8, // include breaklines after each word with cumsum >= X characters

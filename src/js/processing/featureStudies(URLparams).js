@@ -25,7 +25,7 @@ var showDialogOnce = (function () {
 
 // stop / breaklines in text:
 // > maximum number of characters:
-//var MaxLengthWords = config.MaxLengthWords; // allow not more than X characters
+//var MaxNumWords = config.MaxNumWords; // allow not more than X characters
 
 /* DEFAULT values */
 // if no arrows closeness to node
@@ -132,9 +132,9 @@ if (urlSearchParams.has("MinNumNodes")) {
 }
 
 // stop / breaklines in text:
-if (urlSearchParams.has("MaxLengthWords")) {
-    config.MaxLengthWords = parseInt(urlSearchParams.get("MaxLengthWords"), 10);
-    //MaxLengthWords = parseInt(urlSearchParams.get('MaxLengthWords'), 10);
+if (urlSearchParams.has("MaxNumWords")) {
+    config.MaxNumWords = parseInt(urlSearchParams.get("MaxNumWords"), 10);
+    //MaxNumWords = parseInt(urlSearchParams.get('MaxNumWords'), 10);
 }
 
 // enable camera functionality
