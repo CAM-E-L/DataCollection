@@ -87,7 +87,7 @@ const interactionSetUpStudy = `
             </div>
             <div class="column2">
                 <label class="switch" style="margin-top: 8px;">
-                <input type="checkbox" id="sethideAmbivalent" checked>
+                <input type="checkbox" id="setenableAmbivalent" checked>
                 <div class="slider round">
                 </div>
                 </label>
@@ -184,7 +184,7 @@ function setConfigCAMfile() {
 
             showOnlyPosSlid: null, // if true show only slider for agreement (+1 - +3)
 
-            hideAmbivalent: null, // if false = possible to draw ambivalent node
+            enableAmbivalent: null, // if false = possible to draw ambivalent node
             cameraFeature: null, // if true include camera / splotlight feature to move screen
             fullScreen: null, // if true = study in fullscreen mode + paradata
 
@@ -222,10 +222,10 @@ function setConfigCAMfile() {
         setCAMConfig.config.BidirectionalDefault = false;
     }
 
-    if ($("#sethideAmbivalent").is(":checked")) {
-        setCAMConfig.config.hideAmbivalent = false;
+    if ($("#setenableAmbivalent").is(":checked")) {
+        setCAMConfig.config.enableAmbivalent = false;
     } else {
-        setCAMConfig.config.hideAmbivalent = true;
+        setCAMConfig.config.enableAmbivalent = true;
     }
 
     if ($("#setshowOnlyPosSlid").is(":checked")) {
@@ -354,7 +354,7 @@ $(function () {
     });
 
     $(
-        "#sethideArrows, #setBidirectionalDefault, #setfullScreen, #sethideAmbivalent, #setshowOnlyPosSlid, #setcameraFeature"
+        "#sethideArrows, #setBidirectionalDefault, #setfullScreen, #setenableAmbivalent, #setshowOnlyPosSlid, #setcameraFeature"
     ).click(function () {
         setConfigCAMfile();
     });

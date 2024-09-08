@@ -7,7 +7,7 @@ var config = {
     hideArrows: false, // if false = possible to draw arrows
     BidirectionalDefault: false, // if true the default connection is bidirectional
 
-    hideAmbivalent: true, // if false = possible to draw ambivalent node
+    enableAmbivalent: true, // if false = possible to draw ambivalent node
     showOnlyPosSlid: false, // if true = show only slider for agreement (+1 - +3), only works if hideArrows is set to true
     
     MaxNumWords: 3, // maximum number of words for each concept

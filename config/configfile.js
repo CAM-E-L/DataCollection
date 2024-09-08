@@ -7,7 +7,7 @@ var config = {
     hideArrows: false, // if false = possible to draw arrows
     BidirectionalDefault: false, // if true the default connection is bidirectional
 
-    hideAmbivalent: false, // if false = possible to draw ambivalent node
+    enableAmbivalent: false, // if false = possible to draw ambivalent node
     showOnlyPosSlid: false, // if true = show only slider for agreement (+1 - +3), only works if hideArrows is set to true
     
     MaxNumWords: 3, // maximum number of words for each concept
@@ -15,7 +15,7 @@ var config = {
     LengthSentence: 14, // include breaklines if >= X characters
     LengthWords: 8, // include breaklines after each word with cumsum >= X characters
 
-    ShowResearcherButtons: false, // if true = show researcher functionalities
+    ShowResearcherButtons: true, // if true = show researcher functionalities
 
     cameraFeature: false, // include camera / splotlight feature to move screen
 

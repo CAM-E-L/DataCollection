@@ -114,15 +114,15 @@ if (
 
 // hide ambivalent node + reference
 if (
-    urlSearchParams.has("hideAmbivalent") &&
-    urlSearchParams.get("hideAmbivalent") === "true"
+    urlSearchParams.has("enableAmbivalent") &&
+    urlSearchParams.get("enableAmbivalent") === "true"
 ) {
-    config.hideAmbivalent = true;
+    config.enableAmbivalent = true;
 } else if (
-    urlSearchParams.has("hideAmbivalent") &&
-    urlSearchParams.get("hideAmbivalent") === "false"
+    urlSearchParams.has("enableAmbivalent") &&
+    urlSearchParams.get("enableAmbivalent") === "false"
 ) {
-    config.hideAmbivalent = false;
+    config.enableAmbivalent = false;
 }
 
 // necessary conditions to save CAM

@@ -283,7 +283,7 @@ $(function () {
 
 
 // hide ambivalent node
-if(config.hideAmbivalent){
+if(config.enableAmbivalent){
     $('#hideAmvivalentNode').hide();
     $(function () {
         $('#hideAmvivalentNode').hide();
