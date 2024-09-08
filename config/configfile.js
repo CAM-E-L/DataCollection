@@ -2,7 +2,7 @@
 /* default values */
 var config = {
     CAMproject: "projectName", // "proj_" + uuid.v4(), // necessary for server (see ERM) !!!
-    ConNumNodes: 1, // number of nodes necessary to draw # !!! 8
+    MinNumNodes: 10, // number of nodes necessary to draw # !!! 8
     
     hideArrows: false, // if false = possible to draw arrows
     BidirectionalDefault: false, // if true the default connection is bidirectional
@@ -19,7 +19,7 @@ var config = {
 
     cameraFeature: false, // include camera / splotlight feature to move screen
 
-    setLanguage: "German", // set language of your CAM study, e.g. French 
+    setLanguage: "English", // set language of your CAM study, e.g. French 
 
     fullScreen: false, // if true = study in fullscreen mode + paradata
     showNotPopupStart: true, // true = no pop up shown; only working if fullScreen is set to true

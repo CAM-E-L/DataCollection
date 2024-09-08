@@ -68,11 +68,11 @@ function saveCam() {
     }
 
     // necessary # of concepts
-    if (CAMnodes.length < config.ConNumNodes) {
+    if (CAMnodes.length < config.MinNumNodes) {
         toastr.warning(
             languageFileOut.popSave_01numNodes,
             languageFileOut.popSave_02numNodes +
-            config.ConNumNodes +
+            config.MinNumNodes +
             languageFileOut.popSave_03numNodes,
             {
                 closeButton: true,

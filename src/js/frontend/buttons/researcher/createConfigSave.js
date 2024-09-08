@@ -19,7 +19,7 @@ const interactionSetUpStudy = `
                 Number of nodes necessary to draw (about 10 recommended):
             </div>
             <div class="column2">
-            <input type="number" id="setConNumNodes" min="1" max="50" style="width: 60%; margin-top: 14px;" value="10">
+            <input type="number" id="setMinNumNodes" min="1" max="50" style="width: 60%; margin-top: 14px;" value="10">
             </div>
         </div>
         <div class="row" style="background-color:#bababa;">
@@ -175,7 +175,7 @@ function copyText() {
 function setConfigCAMfile() {
     var setCAMConfig = {
         config: {
-            ConNumNodes: $("#setConNumNodes").val(), // number of nodes necessary to draw
+            MinNumNodes: $("#setMinNumNodes").val(), // number of nodes necessary to draw
             MaxLengthWords: $("#setMaxLengthWords").val(), // maximum number of words for each concept
             MaxLengthChars: $("#setMaxLengthChars").val(), // maximum number of characters for each concept
 
@@ -360,7 +360,7 @@ $(function () {
     });
 
     $(
-        "#setConNumNodes,#setMaxLengthWords, #setMaxLengthChars, #setLanguage"
+        "#setMinNumNodes,#setMaxLengthWords, #setMaxLengthChars, #setLanguage"
     ).change(function () {
         setConfigCAMfile();
     });

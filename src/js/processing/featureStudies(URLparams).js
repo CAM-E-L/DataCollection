@@ -21,7 +21,7 @@ var showDialogOnce = (function () {
 
 /* !!! RENAME within code !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 // necessary conditions to save CAM
-//var ConNumNodes = config.ConNumNodes; // # of nodes
+//var MinNumNodes = config.MinNumNodes; // # of nodes
 
 // stop / breaklines in text:
 // > maximum number of characters:
@@ -126,9 +126,9 @@ if (
 }
 
 // necessary conditions to save CAM
-if (urlSearchParams.has("ConNumNodes")) {
-    config.ConNumNodes = parseInt(urlSearchParams.get("ConNumNodes"), 10);
-    //ConNumNodes = parseInt(urlSearchParams.get('ConNumNodes'), 10);
+if (urlSearchParams.has("MinNumNodes")) {
+    config.MinNumNodes = parseInt(urlSearchParams.get("MinNumNodes"), 10);
+    //MinNumNodes = parseInt(urlSearchParams.get('MinNumNodes'), 10);
 }
 
 // stop / breaklines in text:
