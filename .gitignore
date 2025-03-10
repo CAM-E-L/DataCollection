@@ -8,6 +8,7 @@
 # remove folders not needed
 /backups
 /test_stuff
+/zz_backups
 
 # from npm
 package-lock.json*
