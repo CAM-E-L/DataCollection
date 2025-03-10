@@ -562,10 +562,10 @@
     {
         "X_identifier": "popSave_01notSavedData",
         "X_location": "popup save button (popSave)",
-        "english": "You would have send the CAM data successfully to a sever. To save permanently your data please use our administrative panel or host the C.A.M.E.L. software on your own server.",
-        "german": "Sie hätten die CAM-Daten erfolgreich an einen Server gesendet. Um Ihre Daten dauerhaft zu speichern, verwenden Sie bitte unser Administrationspanel oder hosten Sie die C.A.M.E.L. Software auf Ihrem eigenen Server.",
-        "french": "Vous avez envoyé avec succès vos données CAM à un serveur. Pour sauvegarder vos données de manière permanente, veuillez utiliser notre panneau d'administration ou héberger le logiciel C.A.M.E.L. sur votre propre serveur.",
-        "spanish": "Usted habría mandado los datos de su CAM al servidor con éxito. Para guardar sus datos de forma permanente, por favor use nuestro panel de administración o aloje C.A.M.E.L. en su propio servidor."
+        "english": "You would have send the CAM data successfully to a sever. To save permanently your data please use our administrative panel or host the software on your own server.",
+        "german": "Sie hätten die CAM-Daten erfolgreich an einen Server gesendet. Um Ihre Daten dauerhaft zu speichern, verwenden Sie bitte unser Administrationspanel oder hosten Sie die Software auf Ihrem eigenen Server.",
+        "french": "Vous avez envoyé avec succès vos données CAM à un serveur. Pour sauvegarder vos données de manière permanente, veuillez utiliser notre panneau d'administration ou héberger le logiciel sur votre propre serveur.",
+        "spanish": "Usted habría mandado los datos de su CAM al servidor con éxito. Para guardar sus datos de forma permanente, por favor use nuestro panel de administración o aloje en su propio servidor."
     },
     {
         "X_identifier": "popSavePicture_CAM",
@@ -726,5 +726,13 @@
         "german": "zum Fortfahren klicken",
         "french": "cliquer pour continuer",
         "spanish": "haga clic para continuar"
+    },
+    {
+        "X_identifier": "alert_loading",
+        "X_location": "alert loading (to force fullscreen and avoid errors)",
+        "english": "Thank you for waiting. The CAM has loaded.",
+        "german": "Danke, dass Sie gewartet haben. Die CAM wurde geladen.",
+        "french": "",
+        "spanish": ""
     }
 ]
