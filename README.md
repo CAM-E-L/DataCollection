@@ -1,72 +1,32 @@
-# Data Collection Tool
+# Welcome to the **Data Collection Tool**!
 
-The Data Collection Tool is an open-source software to draw Cognitive Affective Maps. It aims to offer people an easy and intuitive interface on which they could design mind map that can be analysed by researchers.
+The **Cognitive-Affective Maps _Extended Logic_** software package provides an open-source solution to analyze Cognitive-Affective Map (CAM) data.
 
 ## Getting Started
 
-The standalone version is based on pure html, css and javascript. It is perfect in case you only need an interface to draw CAM.
+For recommendations and workflow guidance on using the Data Collection Tool, please refer to the [online documentation](https://camtools-documentation.readthedocs.io/en/master/Data%20Collection%20Tool/).
 
-Two differents options are available regarding the use of this software:
+## Need Help?
 
-* All the data can be sent to personal servers such as MangoDB, Jatos, Pavlovia or any other ones.
-* We have set up an administrative panel to easily set up and configure your CAM study: https://drawyourminds.de/
+We’re happy to assist with any additional questions or ideas you may have. We’d love to hear from you! Feel free to reach out:
 
-## Analyse your data
-
-Data can be analyzed using the following software:
-
-- CAM-App, links to
-  - version 1.X: [link](https://fennapps.shinyapps.io/shinyCAMELv01/)
-  - version 2.X: [link](https://fennapps.shinyapps.io/shinyCAMEL_v02/)
-
-### Prerequisites
-
-To use this software in the standalone version:
-
-* a web browser
-
-To use this software with the server version:
-
-* Node
-* Jquery
-
-### Installation
-
-To use this software in the standalone version:
-
-```
-$ git clone XXX
-$ cd XXX
-$ start index.html
-```
-
-## Deployment
-
-[to add later]
-
-### Server
-
-* Live:
-* Release:
-* Development:
-
-### Features
-
-* Save and load
-* Drag and drop: on and off
-* Comment on the way
-* etc...
+- 📧 **Email us:** [cam.contact@drawyourminds.de](mailto:cam.contact@drawyourminds.de)
+- 💬 **Join our community channel:** [Support Page](https://camtools-documentation.readthedocs.io/en/master/Support/)
 
 ## Acknowledgments
 
-This software has been developed by
+This software has been developed by:
 
-* Julius Fenn
-* Florian Gouret
-* Michael Gorki
-* Paul Hüttner
-* Lisa Reuter
-* Wilhelm Gros
-* Andrea Kiesel
+- **Julius Fenn**
+- **Florian Gouret**
+- **Michael Gorki**
+- **Lisa Reuter**
+- **Wilhelm Gros**
+- **Andrea Kiesel**
 
-To quote this software please click on "Cite this repository"
+
+## Cite Our Software
+
+To cite this software, please click on _"Cite this repository."_ However, we recommend referencing our article:
+
+> Fenn, J., Gouret, F., Gorki, M., Reuter, L., Gros, W., Hüttner, P., & Kiesel, A. (under review). _Cognitive-Affective Maps Extended Logic: Proposing Tools to Collect and Analyze Attitudes and Belief Systems._
