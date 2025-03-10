@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# remove folders not needed
+/backups
+/test_stuff
 
 # from npm
 package-lock.json*
@@ -36,4 +39,3 @@ yarn-error.log*
 # files not needed
 # CAM instructions/
 .vscode/
-test_stuff
