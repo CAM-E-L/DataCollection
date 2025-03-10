@@ -24,21 +24,21 @@ const interaction = `
 </div>
 
 <div class="outerNodeSlider" style="margin-bottom: 25px;">
-    <div class="greenColorNodeSlider">
-        <div class="yellowColorNodeSlider">
-            <div class="redColorNodeSlider">
+    <div class="greenColorNodeSlider" style="background-color:hsl(0, 0%, 60%);">
+        <div class="yellowColorNodeSlider" style="background-color:hsl(0, 0%, 65%);">
+            <div class="redColorNodeSlider" style="background-color:hsl(0, 0%, 70%);">
                 <input type="range" min="1" max="7" step="1" id="nodeSlider" list="steplist">
             </div>
         </div>
     </div>
     <div class="labelsNodeSlider">
-        <span>-3</span>
-        <span>-2</span>
-        <span>-1</span>
-        <span>0</span>
         <span>1</span>
         <span>2</span>
         <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
     </div>
 </div>
 
@@ -150,6 +150,7 @@ $(function () {
         var myGreenColorNodeSlider = document.querySelector('.greenColorNodeSlider');
         var myRedColorNodeSlider = document.querySelector('.redColorNodeSlider');
 
+        console.log("valenceValue.value: ", valenceValue.value)
         switch (true) {
             case (valenceValue.value == 4):
                 myRedColorNodeSlider.style.backgroundColor = COLOUR.red3;
@@ -281,7 +282,7 @@ $(function () {
 })
 
 
-// hide ambivalent nodes
+// hide ambivalent node
 if(config.enableAmbivalent){
     $('#hideAmvivalentNode').hide();
     $(function () {

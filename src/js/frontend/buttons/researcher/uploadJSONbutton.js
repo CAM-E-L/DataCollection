@@ -4,6 +4,7 @@ const uploadJSONButton = `<button class="material-icons" onclick="document.getEl
 var target = document.getElementById("hideResearcherButtonsTop");
 target.innerHTML += uploadJSONButton;
 
+
 /* > upload CAM as JSON file
 adjusted: https://stackoverflow.com/questions/36127648/uploading-a-json-file-and-using-it
 https://stackoverflow.com/questions/23344776/how-to-access-data-of-uploaded-json-file
@@ -32,6 +33,7 @@ $(function () {
 
         /* draw CAM */
         arrayIDs = [];
+        let counter = 0;
         for (var i = 0; i < jsonObj.nodes.length; i++) {
             var elementNode = jsonObj.nodes[i];
             //console.log(elementNode);
@@ -51,6 +53,8 @@ $(function () {
                     )
                 );
 
+                CAM.nodes[counter].id = elementNode.id;
+                counter++;
                 // CAM.nodes[i].id = elementNode.id; // add ID of former node
                 // CAM.nodes[i].isDraggable = true; // moveable
                 arrayIDs.push(elementNode.id);
@@ -69,7 +73,7 @@ $(function () {
                 connector1.establishConnection(
                     CAM.nodes[arrayIDs.indexOf(elementConnector.source)],
                     CAM.nodes[arrayIDs.indexOf(elementConnector.target)],
-                    elementConnector.intensity,
+                    elementConnector.intensity * 1,
                     elementConnector.agreement
                 );
                 connector1.isBidirectional = elementConnector.isBidirectional;

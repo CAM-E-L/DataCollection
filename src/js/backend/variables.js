@@ -21,6 +21,7 @@ var stopConY = 0;
 var camMother = null;
 var linkRedirect = null;
 var token = null;
+var nameStudy = null;
 
 // save only part of positions in eventLog when moving node
 var arrayPositions;

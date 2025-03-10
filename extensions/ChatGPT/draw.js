@@ -88,6 +88,7 @@ function getTextSVG(node) {
     nodeText.setAttribute("alignment-baseline", "center");
     nodeText.setAttribute("text-anchor", "middle");
     nodeText.setAttribute("font-size", TEXT.size);
+    nodeText.setAttribute("font-weight", "bold");
 
     if (node.text.length >= config.LengthSentence) {
         const cumulativeSum = (
@@ -183,7 +184,8 @@ function drawNeutral(node) {
 
     neutralNode.setAttribute("fill", COLOUR.neutralNode);
     neutralNode.setAttribute("stroke", COLOUR.neutralLine);
-    neutralNode.setAttribute("stroke-width", 5);
+    neutralNode.setAttribute("stroke-width", 3 * COLOUR.relativeLine);
+
 
     if (node.isSelected === true) {
         neutralNode.setAttribute("fill", COLOUR.selected);
@@ -208,7 +210,8 @@ function drawAmbivalent(node) {
     innerEllipse.setAttribute("transform", "translate(0,0)");
     innerEllipse.setAttribute("fill", COLOUR.ambivalentNode);
     innerEllipse.setAttribute("stroke", COLOUR.ambivalentLine);
-    innerEllipse.setAttribute("stroke-width", 3);
+    innerEllipse.setAttribute("stroke-width", 3 * COLOUR.relativeLine);
+
 
     let outsideShape = document.createElementNS(svgns, "polygon");
     outsideShape.setAttribute("id", node.id);
@@ -220,7 +223,7 @@ function drawAmbivalent(node) {
     outsideShape.setAttribute("transform", "translate(0,0)");
     outsideShape.setAttribute("fill", COLOUR.ambivalentNode);
     outsideShape.setAttribute("stroke", COLOUR.ambivalentLine);
-    outsideShape.setAttribute("stroke-width", 5);
+    outsideShape.setAttribute("stroke-width", 3 * COLOUR.relativeLine);
 
     if (node.isSelected === true) {
         innerEllipse.setAttribute("fill", COLOUR.selected);

@@ -1,15 +1,17 @@
-if (usingMangoDB) {
+if (usingSupabase) {
     async function fetchData(URL) {
         const dataRaw = await fetch(URL);
+        console.log("dataRaw", dataRaw);
         if (dataRaw.status != 200) {
             console.log(dataRaw.status);
             return;
         }
 
-        usingMangoDB = true;
+        usingSupabase = true;
         const data = await dataRaw.json();
+        console.log("data", data.configCAM);
 
-        config = JSON.parse(data.config);
+        config = data.configCAM; // JSON.parse(data);
         console.log("config within: ", config);
         
         /*

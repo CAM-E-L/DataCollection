@@ -47,26 +47,6 @@ function saveCam() {
         );
         return false;
     }
-
-    // every concept should include at least 3 characters
-    var CAMnodesFewText = CAMnodes.filter(
-        (element) => element.text.length < 3
-    );
-
-    if (CAMnodesFewText.length > 0) {
-        toastr.warning(
-            languageFileOut.popSave_01insufficientCharsNodes,
-            CAMnodesFewText.length + languageFileOut.popSave_02insufficientCharsNodes,
-            {
-                closeButton: true,
-                timeOut: 2000,
-                positionClass: "toast-top-center",
-                preventDuplicates: true,
-            }
-        );
-        return false;
-    }
-
     // necessary # of concepts
     if (CAMnodes.length < config.MinNumNodes) {
         toastr.warning(
@@ -126,6 +106,147 @@ function saveCam() {
 
             return false;
         } else {
+            /* check drawn concepts */
+
+            // Initialize arrays to test
+            var conceptsToDraw = ["wenig Auswahl", "frische Lebensmittel", "leckere Lebensmittel", "Einkauf Wochenmarkt", "teuer", "im Freien", "schlechtes Wetter", "frische Luft"];
+            var conceptsValence = [-1, 2, 2, 0, -3, 10, -1, 1];
+
+            // Create a new array of objects containing cleaned text and raw values
+            var cleanedCAMnodes = CAMnodes.map((element) => {
+                return {
+                    text: element.text.trim().replace(/\s+/g, ' '), // Clean the text
+                    value: element.value                           // Keep the value as is
+                };
+            });
+
+            console.log("cleanedCAMnodes: ", cleanedCAMnodes);
+
+            // Compare valence values
+            var includePredefinedTextValence = [];
+
+            cleanedCAMnodes.forEach((concept, index) => {
+                var textIndex = conceptsToDraw.indexOf(concept.text);
+
+                // Check if the concept exists in arrayText
+                if (textIndex !== -1) {
+                    var arrayValenceValue = concept.value;
+                    var conceptsValenceValue = conceptsValence[textIndex];
+
+                    // Compare valence values
+                    var isEqual = arrayValenceValue === conceptsValenceValue || arrayValenceValue === conceptsValenceValue - 1 || arrayValenceValue === conceptsValenceValue + 1;
+
+                    includePredefinedTextValence.push(isEqual);
+
+                    console.log(`Concept: ${concept.text}`);
+                    console.log(`arrayValence: ${arrayValenceValue}`);
+                    console.log(`conceptsValence: ${conceptsValenceValue}`);
+                    console.log(`Is equal: ${isEqual}`);
+                } else {
+                    // If the concept does not exist in arrayText, push false
+                    includePredefinedTextValence.push(false);
+
+                    console.log(`Concept: ${concept} is not found in arrayText`);
+                }
+            });
+
+            var allMatch = includePredefinedTextValence.every(value => value === true);
+
+            console.log("includePredefinedTextValence: ", includePredefinedTextValence);
+            console.log("allMatch: ", allMatch);
+
+
+            if (!allMatch) {
+                toastr.warning(
+                    "Bitte überprüfen Sie die Schreibweise ihrer gezeichneten Konzepte und die vergebene emotionale Bewertung.",
+                    {
+                        closeButton: true,
+                        timeOut: 4000,
+                        positionClass: "toast-top-center",
+                        preventDuplicates: true,
+                    }
+                );
+
+                return false;
+            }
+
+
+            /* check drawn connectors */
+
+            // Create a new array of objects containing raw values and raw agreement
+            var cleanedCAMconnectors = CAMconnectors.map((element) => {
+                return {
+                    agreement: element.agreement,  // Keep agreement as is
+                    value: element.agreement ? element.intensity / 3 : element.intensity / 3 * -1                       // Keep the value as is
+                };
+            });
+
+
+            console.log("cleanedCAMconnectors: ", cleanedCAMconnectors);
+
+
+
+            if (cleanedCAMconnectors.length != 8) { // 8
+                toastr.warning(
+                    "Bitte überprüfen Sie die Anzahl der gezeichneten Verbindungen zwischen den Konzepten, diese sollten acht sein.",
+                    {
+                        closeButton: true,
+                        timeOut: 4000,
+                        positionClass: "toast-top-center",
+                        preventDuplicates: true,
+                    }
+                );
+
+                return false;
+            }
+
+
+            // Count the occurrences of each agreement
+            var agreementCount = {};
+            var valueCount = {};
+
+            // Iterate through the cleanedCAMconnectors to count agreements and values
+            cleanedCAMconnectors.forEach(connector => {
+                // Count agreements
+                if (agreementCount[connector.agreement]) {
+                    agreementCount[connector.agreement]++;
+                } else {
+                    agreementCount[connector.agreement] = 1;
+                }
+
+                // Count values
+                if (valueCount[connector.value]) {
+                    valueCount[connector.value]++;
+                } else {
+                    valueCount[connector.value] = 1;
+                }
+            });
+
+
+            console.log("cleanedCAMconnectors: ", cleanedCAMconnectors);
+            console.log("Agreement counts: ", agreementCount);
+            console.log("Agreement counts true: ", agreementCount.true);
+            console.log("Agreement counts false: ", agreementCount.false);
+
+            console.log("Value counts: ", valueCount);
+
+
+
+            
+            if (agreementCount.true != 6 && agreementCount.false != 2) { // 6, 2
+                toastr.warning(
+                    "Bitte überprüfen Sie den Typ der gezeichneten Verbindungen zwischen den Konzepten. Achten Sie hierbei auf die Anzahl der positiven und negativen Verbindungen.",
+                    {
+                        closeButton: true,
+                        timeOut: 4000,
+                        positionClass: "toast-top-center",
+                        preventDuplicates: true,
+                    }
+                );
+
+                return false;
+            }
+
             // confirm saving
             $("#dialogConfirmSave").dialog("open");
         }
@@ -201,133 +322,6 @@ function saveCAMsuccess() {
         /* if server is >>> MangoDB <<< */
         console.log("usingSupabase: ", usingSupabase);
         if (usingSupabase) {
-
-            // URL of the API endpoint
-
-            async function getData() {
-                const url = webAddress + 'try';
-
-                const get = await fetch(url)
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
-            }
-
-            // getData();
-
-
-            async function postData() {
-                const url = webAddress + 'poststudy';
-                // const url = 'http://localhost:3002/api/poststudy';
-
-                const headers = { 'Content-Type': 'application/json' }
-
-                console.log("postData")
-
-                var dateStart = new Date(CAM.date);
-                var dateEnd = new Date();
-                var diffTime = Math.abs(dateEnd - dateStart);
-
-                const post = await fetch(url, {
-                    method: 'POST',   // Specifying the HTTP method
-                    headers: headers,  // Including headers in the request
-                    body: JSON.stringify({
-                        namestudy: nameStudy,
-                        camid: CAM.idCAM, // .replace(/-/g, '')
-                        participantid: CAM.creator,
-                        datestart: dateStart,
-                        dateend: dateEnd,
-                        datediff: Math.round(diffTime / 1000 / 60 * 100) / 100,
-                        numconcepts: CAM.nodes.length,
-                        numconnectors: CAM.connectors.length,
-                        avgvalence: getMeanValenceNodes(getActiveListNodes()),
-                        cam: CAM,
-                    }),
-                })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
-
-                window.location =
-                    linkRedirect +
-                    "?participantID=" +
-                    CAM.creator;
-
-            }
-            postData()
-
-
-
-            async function postData2() {
-                const url = webAddress + 'try';
-                //const url = 'http://localhost:3000/api/try';
-                const headers = { 'Content-Type': 'application/json' }
-
-                console.log("postData")
-                const post = await fetch(url, {
-                    method: 'POST',   // Specifying the HTTP method
-                    headers: headers,  // Including headers in the request
-                    body: JSON.stringify({
-                        name: 'France',
-                        cam: CAM,
-                        welcomeYourGirl: 'Hello Sarah'
-                    }),
-                })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error('Error:', error));
-            }
-            //postData2()
-
-            /*
-            // URL of the API endpoint
-            const url = 'https://qxeipkcoazhuwnelucih.supabase.co/rest/v1/countries';
-
-            // Data to be sent in the POST request
-            const data = {
-                id: '99',
-                name: 'France'
-            };
-
-            // Headers can include things like API keys or content type
-            const headers = {
-                'Content-Type': 'application/json',
-                'apikey': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4ZWlwa2NvYXpodXduZWx1Y2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4OTQ1MDMsImV4cCI6MjAzMjQ3MDUwM30.DJPV5UY_zVnjFVvN9H3NnXNAl7GcuTQYwNanrHb-PYI',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF4ZWlwa2NvYXpodXduZWx1Y2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4OTQ1MDMsImV4cCI6MjAzMjQ3MDUwM30.DJPV5UY_zVnjFVvN9H3NnXNAl7GcuTQYwNanrHb-PYI'
-            };
-
-            console.log("data", data)
-
-            // Using fetch to send a POST request
-            fetch(url, {
-                method: 'POST',   // Specifying the HTTP method
-                body: JSON.stringify(data),  // Converting data into JSON string
-                headers: headers  // Including headers in the request
-            })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();  // Parsing the JSON response body
-                    } else {
-                        throw new Error('Failed to fetch: ' + response.status);
-                    }
-                })
-                .then(data => {
-                    console.log('Success:', data);  // Handling the JSON data response
-                })
-                .catch(error => {
-                    console.error('Error:', error);  // Handling errors
-                });
-
-*/
-
-
-
-
-
-            /*
-
-
-
             async function pushData() {
                 let info = {
                     method: "POST",
@@ -341,7 +335,7 @@ function saveCAMsuccess() {
                     },
                 };
 
-                console.log("info", info)
+                // console.log("info", info)
 
                 const res = await fetch(
                     webAddress + "participants/submitExperiment",
@@ -359,11 +353,10 @@ function saveCAMsuccess() {
                     /*
                     "?jwt=" +
                     token +
-                
+                    */
                 }
             }
             pushData();
-                */
         }
 
         /* if NO server >>> <<< */

@@ -2,12 +2,12 @@
 /* default values */
 var config = {
     CAMproject: "projectName", // "proj_" + uuid.v4(), // necessary for server (see ERM) !!!
-    MinNumNodes: 10, // number of nodes necessary to draw # !!! 8
+    MinNumNodes: 10, // number of nodes necessary to draw
     
     enableArrows: false, // if false = possible to draw arrows
-    BidirectionalDefault: true, // if true the default connection is bidirectional
+    BidirectionalDefault: false, // if true the default connection is bidirectional
 
-    enableAmbivalent: false, // if false = possible to draw ambivalent node
+    enableAmbivalent: true, // if false = possible to draw ambivalent node
     OnlyStraightCon: false, // if true = show only slider for agreement (+1 - +3), only works if enableArrows is set to true
     
     MaxNumWords: 3, // maximum number of words for each concept
@@ -15,7 +15,7 @@ var config = {
     LengthSentence: 14, // include breaklines if >= X characters
     LengthWords: 8, // include breaklines after each word with cumsum >= X characters
 
-    ShowResearcherButtons: true, // if true = show researcher functionalities
+    ShowResearcherButtons: false, // if true = show researcher functionalities
 
     cameraFeature: false, // include camera / splotlight feature to move screen
 
@@ -33,8 +33,8 @@ var config = {
 }
 
 // global variable
-var usingSupabase = false;
-var usingJATOS = true;
+var usingSupabase = true;
+var usingJATOS = false;
 /* MAKE CHANGES: end*/
 
 console.log("config config file:", config)

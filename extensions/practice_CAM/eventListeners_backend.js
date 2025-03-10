@@ -1,5 +1,9 @@
 $(document).on("mousedown", ".node", function (event) {
     arrayPositions = [];
+
+    var ids = CAM.nodes.map((node) => node.id);
+        
+    if(ids.indexOf($(this)[0].id) !== -1) {
     /* if double click */
     if (event.detail == 2) {
         CAM.selecteNode($(this)[0].id);
@@ -25,12 +29,16 @@ $(document).on("mousedown", ".node", function (event) {
                 document.getElementById("checkboxAmbivalent").checked = false;
                 document.getElementById("nodeSlider").disabled = false;
 
-                backendRedColorNodeSlider.style.backgroundColor = COLOUR.red3; // "hsl(0, 50%, 60%)";
-                backendGreenColorNodeSlider.style.backgroundColor = COLOUR.green3; // "hsl(110, 50%, 60%)";
+                backendRedColorNodeSlider.style.backgroundColor =
+                    "hsl(0, 50%, 60%)";
+                backendGreenColorNodeSlider.style.backgroundColor =
+                    "hsl(110, 50%, 60%)";
             } else if (CAM.currentNode.value == 10) {
                 document.getElementById("nodeSlider").value = 4;
-                backendRedColorNodeSlider.style.backgroundColor = COLOUR.red3; // "hsl(0, 50%, 60%)";
-                backendGreenColorNodeSlider.style.backgroundColor = COLOUR.green3; // "hsl(110, 50%, 60%)";
+                backendRedColorNodeSlider.style.backgroundColor =
+                    "hsl(0, 50%, 60%)";
+                backendGreenColorNodeSlider.style.backgroundColor =
+                    "hsl(110, 50%, 60%)";
 
                 document.getElementById("checkboxAmbivalent").checked = true;
                 document.getElementById("nodeSlider").disabled = true;
@@ -39,13 +47,16 @@ $(document).on("mousedown", ".node", function (event) {
                 document.getElementById("nodeSlider").disabled = false;
                 if (CAM.currentNode.value == -1) {
                     document.getElementById("nodeSlider").value = 3;
-                    backendRedColorNodeSlider.style.backgroundColor = COLOUR.red3; // "hsl(0, 50%, 60%)";
+                    backendRedColorNodeSlider.style.backgroundColor =
+                        "hsl(0, 50%, 60%)";
                 } else if (CAM.currentNode.value == -2) {
                     document.getElementById("nodeSlider").value = 2;
-                    backendRedColorNodeSlider.style.backgroundColor = COLOUR.red2; // "hsl(0, 50%, 50%)";
+                    backendRedColorNodeSlider.style.backgroundColor =
+                        "hsl(0, 50%, 50%)";
                 } else if (CAM.currentNode.value == -3) {
                     document.getElementById("nodeSlider").value = 1;
-                    backendRedColorNodeSlider.style.backgroundColor = COLOUR.red1; // "hsl(0, 50%, 40%)";
+                    backendRedColorNodeSlider.style.backgroundColor =
+                        "hsl(0, 50%, 40%)";
                 }
             } else if (
                 CAM.currentNode.value > 0 &&
@@ -55,13 +66,16 @@ $(document).on("mousedown", ".node", function (event) {
                 document.getElementById("nodeSlider").disabled = false;
                 if (CAM.currentNode.value == 1) {
                     document.getElementById("nodeSlider").value = 5;
-                    backendGreenColorNodeSlider.style.backgroundColor = COLOUR.green3; // "hsl(110, 50%, 60%)";
+                    backendGreenColorNodeSlider.style.backgroundColor =
+                        "hsl(110, 50%, 60%)";
                 } else if (CAM.currentNode.value == 2) {
                     document.getElementById("nodeSlider").value = 6;
-                    backendGreenColorNodeSlider.style.backgroundColor = COLOUR.green2; // "hsl(110, 50%, 50%)";
+                    backendGreenColorNodeSlider.style.backgroundColor =
+                        "hsl(110, 50%, 50%)";
                 } else if (CAM.currentNode.value == 3) {
                     document.getElementById("nodeSlider").value = 7;
-                    backendGreenColorNodeSlider.style.backgroundColor = COLOUR.green1;  // "hsl(110, 100%, 40%)";
+                    backendGreenColorNodeSlider.style.backgroundColor =
+                        "hsl(110, 50%, 40%)";
                 }
             }
 
@@ -80,6 +94,7 @@ $(document).on("mousedown", ".node", function (event) {
         resetConnectorSelection();
         CAM.selecteNode($(this)[0].id);
     }
+}
 
     CAM.draw();
 });
@@ -140,25 +155,41 @@ $(document).on("mouseup", ".node", function (event) {
 /* for what these two event handlers??? */
 
 $(document).on("click", ".connector", function (event) {
-    resetConnectorSelection();
-    resetNodeSelection();
-    CAM.selectConnection($(this)[0].id);
 
-    CAM.draw();
+    var ids = CAM.connectors.map((connectors) => connectors.id);
+    
+    
+    if(ids.indexOf($(this)[0].id) !== -1){
+        resetConnectorSelection();
+        resetNodeSelection();
+        CAM.selectConnection($(this)[0].id);
+    
+        CAM.draw();
+    }
 });
 
 $(document).on("click", ".outer-connector", function (event) {
+
+    var ids = CAM.connectors.map((connectors) => connectors.id);
+
+    if(ids.indexOf($(this)[0].id) !== -1){
     resetConnectorSelection();
     resetNodeSelection();
     CAM.selectConnection($(this)[0].id);
 
     CAM.draw();
+    }
 });
+
 
 $(document).on("mousedown", ".connector, .outer-connector", function (event) {
     /* if double click */
 
     // console.log($(this)[0].id);
+
+    var ids = CAM.connectors.map((connectors) => connectors.id);
+
+    if(ids.indexOf($(this)[0].id) !== -1){
 
     if (event.detail == 2) {
         resetConnectorSelection();
@@ -276,6 +307,7 @@ $(document).on("mousedown", ".connector, .outer-connector", function (event) {
 
         CAM.draw();
     }
+}
 });
 
 $(document).on("click", "#background", function (event) {
@@ -292,6 +324,7 @@ $(document).on("click", "#background", function (event) {
 });
 
 $(document).on("mousemove", "#CAMSVG", function (event) {
+    
     const positionClick = {
         x: event.clientX - $("#CAMSVG").position().left, // / zoomScale,
         y: event.clientY - $("#CAMSVG").position().top, // / zoomScale

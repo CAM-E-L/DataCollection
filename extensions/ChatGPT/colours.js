@@ -4,7 +4,7 @@
 // Text elements
 const TEXT = {
     colour: "black",
-    size: "22px", // 28px
+    size: "24px"
 };
 
 const COLOUR = {
@@ -12,19 +12,19 @@ const COLOUR = {
     selected: "#03A3FF",
     adjacent: "rgb(163, 163, 163)",
 
-    positiveNode: "#B9F1B9",
+    positiveNode: "#ffffff",
     positiveLine: "#22AA22",
 
-    negativeNode: "#EB8989",
+    negativeNode: "#ffffff",
     negativeLine: "#E04848",
 
-    neutralNode: "#F0EEC0",
+    neutralNode: "#ffffff",
     neutralLine: "#F3F033",
 
-    ambivalentNode: "rgb(247, 151, 226)",
+    ambivalentNode: "#ffffff",
     ambivalentLine: "rgb(142, 19, 146)",
 
-    relativeLine: 5,
+    relativeLine: 6,
     
     line: "#808080",
     outerLine: "rgba(255, 255, 255, 0)",

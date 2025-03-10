@@ -21,47 +21,35 @@ console.log("index_ConceptsCAM:", index_ConceptsCAM);
  */
 
 function defaultCAM() {
-  if (!usingMangoDB) {
+  if (!usingSupabase) {
     /* MAKE CHANGES: start*/
 
-    CAM.addElement(new NodeCAM(0, "central (change me!)", {
-      x: 600,
+    CAM.addElement(new NodeCAM(0, "Central Concept", {
+      x: 650,
       y: 400
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(-1, "11", {
-      x: 100,
-      y: 300
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(-2, "22", {
-      x: 200,
-      y: 300
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(-3, "33", {
-      x: 300,
-      y: 300
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(1, "11", {
-      x: 300,
-      y: 400
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(2, "22", {
-      x: 400,
-      y: 400
-    }, true, true, true));
-
-    CAM.addElement(new NodeCAM(3, "33", {
-      x: 500,
-      y: 400
-    }, true, true, true));
-
+    }, false, false, false));
 
 
     /* MAKE Changes: end*/
+/*
+
+    CAM.addElement(new NodeCAM(0, "Central Concept", {
+      x: 650,
+      y: 400
+    }, false, false, false));
+
+
+    CAM.addElement(new NodeCAM(0, "concept2", {
+      x: 800,
+      y: 400
+    }, false, false, false));
+
+    var connector1 = new ConnectorCAM();
+    connector1.establishConnection(CAM.nodes[0], CAM.nodes[1], IncreaseSliderIntensity, false);
+    connector1.value = 1;
+    connector1.isDeletable = false;
+    CAM.addElement(connector1);
+*/
   } else {
     // add nodes from fetched data
     camMother.nodes.forEach((element) => {

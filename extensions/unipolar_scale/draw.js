@@ -66,13 +66,7 @@ function getShapeSVG(node) {
         case node.value == 10: // ambivalent concept
             return drawAmbivalent(node);
 
-        case node.value == 0: // neutral concept
-            return drawNeutral(node);
-
-        case node.value < 0: // negative concept
-            return drawNegativeNode(node);
-
-        case node.value > 0: // positive concept
+        case node.value != 10: // neutral concept
             return drawPositiveNode(node);
     }
 }
@@ -110,7 +104,7 @@ function getTextSVG(node) {
             }
         }
 
-        nodeText.setAttribute("y", -10);
+        nodeText.setAttribute("y", -20);
 
         nodeText.innerHTML = ArrayText.join(" ");
     } else {
@@ -132,9 +126,26 @@ function drawPositiveNode(node) {
     positiveNode.setAttribute("transform", "translate(0,0)"); // scale(0.1)
     positiveNode.setAttribute("fill", COLOUR.positiveNode);
     positiveNode.setAttribute("stroke", COLOUR.positiveLine);
-    positiveNode.setAttribute("stroke-width", Math.abs(node.value) * COLOUR.relativeLine);
 
-   // positiveNode.setAttribute("opacity", Math.abs(node.value) / 3);
+    let tmp_value;
+    if(node.value == -3){
+        tmp_value = 1;
+    }else if(node.value == -2){
+        tmp_value = 2;
+    }else if(node.value == -1){
+        tmp_value = 3;
+    }else if(node.value == 0){
+        tmp_value = 4;
+    }else if(node.value == 1){
+        tmp_value = 5;
+    }else if(node.value == 2){
+        tmp_value = 6;
+    }else if(node.value == 3){
+        tmp_value = 7;
+    }
+
+positiveNode.setAttribute("stroke-width", tmp_value * COLOUR.relativeLine);
+   positiveNode.setAttribute("opacity", tmp_value / 7);
 
     if (node.isSelected === true) {
         positiveNode.setAttribute("fill", COLOUR.selected);
@@ -430,7 +441,7 @@ function drawConnector(connector, mother, daughter) {
 let motherD;
         if(config.enableArrows){
             motherD = Math.sqrt(
-                (Math.cos(angle) * 1) ** 2 + (Math.sin(angle) * 1) ** 2
+                (Math.cos(angle) * 25) ** 2 + (Math.sin(angle) * 10) ** 2 // !!!
             );
         }else{
             motherD = Math.sqrt(

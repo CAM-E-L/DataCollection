@@ -1,4 +1,4 @@
-if (usingMangoDB) {
+if (usingSupabase) {
     async function fetchData(URL) {
         console.log("URL:", URL)
         const dataRaw = await fetch(URL);
@@ -9,12 +9,13 @@ if (usingMangoDB) {
         }
         const data = await dataRaw.json();
 
-        camMother = JSON.parse(data.cam);
-        config = JSON.parse(data.config);
-        linkRedirect = data.link;
-        token = data.token;
+        camMother = data.defaultCAM; // JSON.parse(data.cam);
+        config = data.configCAM; // JSON.parse(data.config);
+        linkRedirect = data.redirectLink;
+        // token = data.token;
+        nameStudy = data.nameStudy;
 
-        console.log(linkRedirect);
+        // console.log(linkRedirect);
         camMother.nodes.forEach((element) => {
             element.kind = "Node";
             element.comment = "";
@@ -22,6 +23,7 @@ if (usingMangoDB) {
             element.isActive = true;
             element.isConnectorSelected = false;
             element.isSelected = false;
+            element.date = new Date().getTime(); // !!!
             CAM.importElement(element);
         });
 

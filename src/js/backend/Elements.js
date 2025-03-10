@@ -69,7 +69,7 @@ class Elements {
 
     addConnector(connector) {
         if (this.isConnectorIn(connector) == false) {
-            if (config.BidirectionalDefault || config.hideArrows) {
+            if (config.BidirectionalDefault || config.enableArrows) {
                 connector.setBidirectional(true);
             }
 
@@ -269,7 +269,7 @@ class Elements {
     }
 
     importElement(element) {
-        console.log(element);
+        // console.log(element);
         if (element.kind === "Node") {
             var node = new NodeCAM(
                 0,

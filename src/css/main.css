@@ -9,6 +9,8 @@
 
 @import 'shared/setconfig.css';
 
+@import 'shared/material_icons.css';
+
 :root{
   font-family: Verdana, Geneva, Tahoma, sans-serif; /* also change: ".ui-dialog-buttonset > button"*/
 }
